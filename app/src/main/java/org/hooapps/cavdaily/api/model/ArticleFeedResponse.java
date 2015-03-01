@@ -27,7 +27,7 @@ class Channel {
     @Element
     public String title;
 
-    @ElementList(inline = true)
+    @ElementList(entry = "item", inline = true)
     public List<ArticleItem> articles;
 
 }

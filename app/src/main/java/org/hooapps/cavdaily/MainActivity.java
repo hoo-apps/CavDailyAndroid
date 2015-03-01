@@ -1,6 +1,7 @@
 package org.hooapps.cavdaily;
 
 import android.content.Context;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -12,9 +13,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+
+import org.hooapps.cavdaily.api.CavDailyFeedService;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,8 +38,17 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if(savedInstanceState == null){
+            // Set the fragment to initially load the news feed
+            Bundle bundle = new Bundle();
+            bundle.putString(CategoryFragment.ARG_CATEGORY, CavDailyFeedService.NEWS);
+
+            // Set the arguments for the ListFragment
+            Fragment frag = new CategoryFragment();
+            frag.setArguments(bundle);
+
+            // Add the fragment to the container
             FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-            ft.add(R.id.container, new CategoryFragment());
+            ft.add(R.id.container, frag);
             ft.commit();
         }
 
@@ -55,14 +68,7 @@ public class MainActivity extends ActionBarActivity {
         ));
         navDrawerAdapter = new NavDrawerAdapter(this, navDrawerItems);
         navDrawer.setAdapter(navDrawerAdapter);
-
-        /*
-        // Make the ActionBar title clickable
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getSupportActionBar().setHomeButtonEnabled(true);
-        }
-        */
+        navDrawer.setOnItemClickListener(new NavDrawerListener());
 
         // Bind the DrawerToggle with the Drawer
         drawerToggle = new ActionBarDrawerToggle(
@@ -114,6 +120,58 @@ public class MainActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void swapListFragment(String category) {
+        // Create a new ListFrag with the correct args
+        Bundle bundle = new Bundle();
+        bundle.putString(CategoryFragment.ARG_CATEGORY, category);
+        Fragment frag = new CategoryFragment();
+        frag.setArguments(bundle);
+
+        // Swap the fragment
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.container, frag);
+        ft.commit();
+    }
+
+    private class NavDrawerListener implements  ListView.OnItemClickListener {
+
+        @Override
+        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            String category = CavDailyFeedService.NEWS;
+
+            switch (position) {
+                // News
+                case 0: category = CavDailyFeedService.NEWS;
+                    break;
+                // Sports
+                case 1: category = CavDailyFeedService.SPORTS;
+                    break;
+                // Opinion
+                case 2: category = CavDailyFeedService.OPINION;
+                    break;
+                // Life
+                case 3: category = CavDailyFeedService.LIFE;
+                    break;
+                // A&E
+                case 4: category = CavDailyFeedService.AE;
+                    break;
+                // Focus
+                case 5: category = CavDailyFeedService.FOCUS;
+                    break;
+                // Humor
+                case 6: // TODO
+                    break;
+                // Multimedia
+                case 7: // TODO
+                    break;
+            }
+
+            swapListFragment(category);
+            drawerLayout.closeDrawers();
+        }
     }
 
     private static class NavDrawerAdapter extends BaseAdapter {

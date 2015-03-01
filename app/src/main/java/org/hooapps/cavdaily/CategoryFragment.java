@@ -20,17 +20,30 @@ import com.squareup.picasso.Picasso;
 
 import org.hooapps.cavdaily.api.CavDailyFeed;
 import org.hooapps.cavdaily.api.CavDailyFeedLoader;
+import org.hooapps.cavdaily.api.CavDailyFeedService;
 import org.hooapps.cavdaily.api.model.ArticleFeedResponse;
 import org.hooapps.cavdaily.api.model.ArticleItem;
 import org.hooapps.cavdaily.api.model.RedditData;
+import org.simpleframework.xml.Serializer;
+import org.simpleframework.xml.core.Persister;
 
 import java.util.List;
 
+import retrofit.converter.SimpleXMLConverter;
+
 public class CategoryFragment extends ListFragment implements LoaderManager.LoaderCallbacks<ArticleFeedResponse> {
+
+    public static final String ARG_CATEGORY = "arg_category";
+    private String category;
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        // Get the category from the arguments
+        this.category = getArguments().getString(ARG_CATEGORY);
+
+        // Configure the ListView and load the data
         getListView().setDivider(null);
         getListView().setDrawSelectorOnTop(true);
         getLoaderManager().initLoader(0, null, this);
@@ -42,7 +55,7 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
 
     @Override
     public Loader<ArticleFeedResponse> onCreateLoader(int id, Bundle args) {
-        return new CavDailyFeedLoader(getActivity());
+        return new CavDailyFeedLoader(getActivity(), this.category);
     }
 
     @Override
@@ -87,14 +100,14 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             }
             ViewHolder holder = (ViewHolder) convertView.getTag();
             ArticleItem article = getItem(position);
-            Log.d("TAG", "" + article.mediaContent);
             holder.title.setText(article.title);
             holder.author.setText(article.author);
-            if (article.mediaContent == null) {
+            //if (article.mediaContent == null) {
+            if (article.contentList == null) {
                 holder.image.setVisibility(View.GONE);
             } else {
                 holder.image.setVisibility(View.VISIBLE);
-                Picasso.with(context).load(article.getMediaUrl()).into(holder.image);
+                Picasso.with(context).load(article.getMediaUrls().get(0)).into(holder.image);
             }
 
             return convertView;

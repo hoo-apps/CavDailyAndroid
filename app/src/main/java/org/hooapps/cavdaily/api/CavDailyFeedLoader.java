@@ -10,13 +10,17 @@ import oak.util.OakAsyncLoader;
  * Created by ericrichardson on 2/18/15.
  */
 public class CavDailyFeedLoader extends OakAsyncLoader<ArticleFeedResponse>{
-    public CavDailyFeedLoader(Context context) {
+
+    private String category;
+
+    public CavDailyFeedLoader(Context context, String category) {
         super(context);
+        this.category = category;
     }
 
     @Override
     public ArticleFeedResponse loadInBackground() {
-        ArticleFeedResponse response = CavDailyFeed.getService().getNewsFeed();
+        ArticleFeedResponse response = CavDailyFeed.getService().getCavDailyFeed(category);
         return response;
     }
 }
