@@ -1,13 +1,33 @@
 package org.hooapps.cavdaily;
 
+import android.content.Context;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
+
+    DrawerLayout drawerLayout;
+    ListView navDrawer;
+    private NavDrawerAdapter navDrawerAdapter;
+    private ActionBarDrawerToggle drawerToggle;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,8 +38,58 @@ public class MainActivity extends ActionBarActivity {
             ft.add(R.id.container, new CategoryFragment());
             ft.commit();
         }
+
+        // Load the views
+        drawerLayout = (DrawerLayout) this.findViewById(R.id.drawer_layout);
+        navDrawer = (ListView) this.findViewById(R.id.left_drawer);
+        toolbar = (Toolbar) this.findViewById(R.id.toolbar);
+
+        if (toolbar != null) {
+            toolbar.setTitle(R.string.app_name);
+            setSupportActionBar(toolbar);
+        }
+
+        // Configure the adapter for the Nav Drawer
+        ArrayList<String> navDrawerItems = new ArrayList<>(Arrays.asList(
+                getResources().getStringArray(R.array.nav_drawer_items)
+        ));
+        navDrawerAdapter = new NavDrawerAdapter(this, navDrawerItems);
+        navDrawer.setAdapter(navDrawerAdapter);
+
+        /*
+        // Make the ActionBar title clickable
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setHomeButtonEnabled(true);
+        }
+        */
+
+        // Bind the DrawerToggle with the Drawer
+        drawerToggle = new ActionBarDrawerToggle(
+                this,
+                drawerLayout,
+                toolbar,
+                R.string.drawer_open,
+                R.string.drawer_closed
+        ) {
+        @Override
+        public void onDrawerClosed(View drawerView) {
+                super.onDrawerClosed(drawerView);
+            }
+
+        @Override
+        public void onDrawerOpened(View drawerView) {
+            super.onDrawerOpened(drawerView);
+        }
+        };
+        drawerLayout.setDrawerListener(drawerToggle);
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        drawerToggle.syncState();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,7 +109,56 @@ public class MainActivity extends ActionBarActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if (drawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private static class NavDrawerAdapter extends BaseAdapter {
+
+        private Context context;
+        private List<String> items;
+
+        private NavDrawerAdapter(Context context, List<String> items) {
+            this.context = context;
+            this.items = items;
+        }
+
+        @Override
+        public int getCount() {
+            return items.size();
+        }
+
+        @Override
+        public String getItem(int position) {
+            return items.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if (convertView == null) {
+                convertView = LayoutInflater.from(context).inflate(R.layout.view_nav_drawer_item, parent, false);
+                convertView.setTag(new ViewHolder(convertView));
+            }
+            ViewHolder holder = (ViewHolder) convertView.getTag();
+            String title = getItem(position);
+            holder.title.setText(title);
+            return convertView;
+        }
+
+        private static class ViewHolder {
+            TextView title;
+
+            public ViewHolder(View v) {
+                title = (TextView) v.findViewById(R.id.title);
+            }
+        }
     }
 }
