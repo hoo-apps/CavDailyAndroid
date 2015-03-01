@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -81,13 +82,21 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
             if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.view_list_item_text, parent, false);
+                convertView = LayoutInflater.from(context).inflate(R.layout.view_list_item_image, parent, false);
                 convertView.setTag(new ViewHolder(convertView));
             }
             ViewHolder holder = (ViewHolder) convertView.getTag();
             ArticleItem article = getItem(position);
+            Log.d("TAG", "" + article.mediaContent);
             holder.title.setText(article.title);
             holder.author.setText(article.author);
+            if (article.mediaContent == null) {
+                holder.image.setVisibility(View.GONE);
+            } else {
+                holder.image.setVisibility(View.VISIBLE);
+                Picasso.with(context).load(article.getMediaUrl()).into(holder.image);
+            }
+
             return convertView;
         }
 
