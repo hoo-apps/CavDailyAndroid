@@ -10,7 +10,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="org.hooapps.cavdaily.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,17 +19,25 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.hooapps.cavdaily.ImageActivity"
+            android:name=".ImageActivity"
             android:label="@string/app_name"
-            android:parentActivityName="org.hooapps.cavdaily.MainActivity" >
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.hooapps.cavdaily.MainActivity" />
         </activity>
         <activity
-            android:name="org.hooapps.cavdaily.SelfActivity"
+            android:name=".SelfActivity"
             android:label="@string/app_name"
-            android:parentActivityName="org.hooapps.cavdaily.MainActivity" >
+            android:parentActivityName=".MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="org.hooapps.cavdaily.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ArticleDetailActivity"
+            android:label="@string/title_activity_article_detail"
+            android:parentActivityName=".MainActivity" >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.hooapps.cavdaily.MainActivity" />

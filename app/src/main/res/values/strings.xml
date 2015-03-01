@@ -18,4 +18,5 @@
         <item name="humor">Humor</item>
         <item name="multimedia">Multimedia</item>
     </string-array>
+    <string name="title_activity_article_detail">ArticleDetail</string>
 </resources>

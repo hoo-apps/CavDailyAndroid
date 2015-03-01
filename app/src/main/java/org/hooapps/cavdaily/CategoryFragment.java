@@ -51,6 +51,8 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
+        ArticleItem articleItem = (ArticleItem) getListAdapter().getItem(position);
+        ArticleDetailActivity.startArticleDetailActivity(getActivity(), articleItem);
     }
 
     @Override
