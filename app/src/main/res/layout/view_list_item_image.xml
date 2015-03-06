@@ -17,17 +17,35 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
-            <oak.widget.AspectRatioLayout
-                android:layout_height="wrap_content"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                app:oakAspectRatio="16:9">
-                <ImageView
-                    android:id="@+id/image"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <oak.widget.AspectRatioLayout
+                    android:layout_height="wrap_content"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"/>
-
-            </oak.widget.AspectRatioLayout>
+                    app:oakAspectRatio="16:9">
+                    <ImageView
+                        android:id="@+id/imageback"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:alpha="0.75"
+                        android:tint="#c0000000"
+                        android:tintMode="src_over" />
+                    <oak.widget.AspectRatioLayout
+                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        app:oakAspectRatio="16:9">
+                        <ImageView
+                            android:id="@+id/image"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:scaleType="fitCenter"
+                            android:alpha="1.0" />
+                    </oak.widget.AspectRatioLayout>
+                </oak.widget.AspectRatioLayout>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/title"

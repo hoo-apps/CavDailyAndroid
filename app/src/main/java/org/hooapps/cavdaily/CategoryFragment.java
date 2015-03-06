@@ -103,24 +103,27 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             ViewHolder holder = (ViewHolder) convertView.getTag();
             ArticleItem article = getItem(position);
             holder.title.setText(article.title);
-            holder.author.setText(article.author);
+            holder.author.setText(article.author.split("[\\(\\)]")[1]);
             //if (article.mediaContent == null) {
             if (article.contentList == null) {
                 holder.image.setVisibility(View.GONE);
             } else {
                 holder.image.setVisibility(View.VISIBLE);
+                holder.imageback.setVisibility(View.VISIBLE);
                 Picasso.with(context).load(article.getMediaUrls().get(0)).into(holder.image);
+                Picasso.with(context).load(article.getMediaUrls().get(0)).into(holder.imageback);
             }
 
             return convertView;
         }
 
         private static class ViewHolder {
-            ImageView image;
+            ImageView image, imageback;
             TextView title, author;
 
             public ViewHolder(View v) {
                 image = (ImageView) v.findViewById(R.id.image);
+                imageback = (ImageView) v.findViewById(R.id.imageback);
                 title = (TextView) v.findViewById(R.id.title);
                 author = (TextView) v.findViewById(R.id.author);
             }
