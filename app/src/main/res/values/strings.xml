@@ -9,13 +9,14 @@
     <string name="drawer_closed">Closed</string>
 
     <string-array name="nav_drawer_items">
+        <item name="top">Top Stories</item>
         <item name="news">News</item>
         <item name="sports">Sports</item>
         <item name="opinion">Opinion</item>
-        <item name="life">Life</item>
         <item name="arts_and_ent">Arts &amp; Entertainment</item>
+        <item name="life">Life</item>
         <item name="focus">Focus</item>
-        <item name="humor">Humor</item>
+        <item name="health_and_sci">Health &amp; Science</item>
         <item name="multimedia">Multimedia</item>
     </string-array>
     <string name="title_activity_article_detail">ArticleDetail</string>

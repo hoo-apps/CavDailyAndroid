@@ -40,7 +40,7 @@ public class MainActivity extends ActionBarActivity {
         if(savedInstanceState == null){
             // Set the fragment to initially load the news feed
             Bundle bundle = new Bundle();
-            bundle.putString(CategoryFragment.ARG_CATEGORY, CavDailyFeedService.NEWS);
+            bundle.putString(CategoryFragment.ARG_CATEGORY, CavDailyFeedService.TOP);
 
             // Set the arguments for the ListFragment
             Fragment frag = new CategoryFragment();
@@ -143,29 +143,32 @@ public class MainActivity extends ActionBarActivity {
             String category = CavDailyFeedService.NEWS;
 
             switch (position) {
+                // Top Stories
+                case 0: category = CavDailyFeedService.TOP;
+                    break;
                 // News
-                case 0: category = CavDailyFeedService.NEWS;
+                case 1: category = CavDailyFeedService.NEWS;
                     break;
                 // Sports
-                case 1: category = CavDailyFeedService.SPORTS;
+                case 2: category = CavDailyFeedService.SPORTS;
                     break;
                 // Opinion
-                case 2: category = CavDailyFeedService.OPINION;
+                case 3: category = CavDailyFeedService.OPINION;
                     break;
                 // Life
-                case 3: category = CavDailyFeedService.LIFE;
-                    break;
-                // A&E
                 case 4: category = CavDailyFeedService.AE;
                     break;
-                // Focus
-                case 5: category = CavDailyFeedService.FOCUS;
+                // A&E
+                case 5: category = CavDailyFeedService.LIFE;
                     break;
-                // Humor
-                case 6: // TODO
+                // Focus
+                case 6: category = CavDailyFeedService.FOCUS;
+                    break;
+                // H&S
+                case 7: category = CavDailyFeedService.HS;
                     break;
                 // Multimedia
-                case 7: // TODO
+                case 8: category = CavDailyFeedService.MULTIMEDIA;
                     break;
             }
 

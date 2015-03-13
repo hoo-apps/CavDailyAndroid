@@ -29,12 +29,16 @@ public class ArticleItem {
     @Element
     public String pubDate;
 
-    @Element
+    @Element(required = false)
     public String author;
 
     @ElementList(entry = "content", required = false, inline = true)
     @Namespace(prefix = "media")
     public List<Content> contentList;
+
+    public boolean hasMedia() {
+        return (contentList != null);
+    }
 
     public List<String> getMediaUrls() {
         // Transfer the urls to List of Strings

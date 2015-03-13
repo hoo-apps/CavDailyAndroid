@@ -17,6 +17,8 @@ public interface CavDailyFeedService {
     public static final String LIFE = "life-full";
     public static final String AE = "ae-full";
     public static final String HS = "health-science";
+    public static final String MULTIMEDIA = "multimedia-full";
+    public static final String TOP = "top-stories-full";
 
     @GET("/{category}.xml")
     ArticleFeedResponse getCavDailyFeed(@Path("category") String type);

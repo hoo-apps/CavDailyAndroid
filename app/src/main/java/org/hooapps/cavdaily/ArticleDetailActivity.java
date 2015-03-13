@@ -39,8 +39,10 @@ public class ArticleDetailActivity extends ActionBarActivity {
         intent.putExtra(EXT_TITLE, articleItem.title);
         intent.putExtra(EXT_DESC, articleItem.description);
         intent.putExtra(EXT_DATE, articleItem.pubDate);
-        ArrayList<String> mediaLinks = (ArrayList<String>) articleItem.getMediaUrls();
-        intent.putStringArrayListExtra(EXT_MEDIA, mediaLinks);
+        if (articleItem.hasMedia()) {
+            ArrayList<String> mediaLinks = (ArrayList<String>) articleItem.getMediaUrls();
+            intent.putStringArrayListExtra(EXT_MEDIA, mediaLinks);
+        }
         context.startActivity(intent);
     }
 
