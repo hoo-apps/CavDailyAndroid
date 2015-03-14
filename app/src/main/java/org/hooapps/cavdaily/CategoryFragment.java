@@ -103,8 +103,8 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             ViewHolder holder = (ViewHolder) convertView.getTag();
             ArticleItem article = getItem(position);
             holder.title.setText(article.title);
-            if (article.author != null && !article.author.isEmpty()) {
-                holder.author.setText(article.author.split("[\\(\\)]")[1]);
+            if (article.getAuthor() != null && !article.getAuthor().isEmpty()) {
+                holder.author.setText(article.getAuthor());
             }
             if (article.contentList == null) {
                 Picasso.with(context).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(holder.image);

@@ -27,10 +27,18 @@ public class ArticleItem {
     public String guid;
 
     @Element
-    public String pubDate;
+    private String pubDate;
+
+    public String getDate() {
+        return pubDate.substring(0, pubDate.indexOf(":") + 3);
+    }
 
     @Element(required = false)
-    public String author;
+    private String author;
+
+    public String getAuthor() {
+        return author.split("[\\(\\)]")[1];
+    }
 
     @ElementList(entry = "content", required = false, inline = true)
     @Namespace(prefix = "media")

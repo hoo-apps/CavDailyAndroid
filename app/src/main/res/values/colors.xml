@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cd_blue">#ff0d3268</color>
+    <color name="cd_blue_dark">#ff0d264c</color>
+    <color name="cd_accent">#ffffff</color>
+    <color name="cd_orange">#e05633</color>
+
+    <color name="grey">#eeeeee</color>
+</resources>
