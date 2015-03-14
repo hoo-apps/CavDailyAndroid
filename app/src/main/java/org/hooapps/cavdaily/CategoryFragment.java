@@ -102,7 +102,8 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             }
             ViewHolder holder = (ViewHolder) convertView.getTag();
             ArticleItem article = getItem(position);
-            holder.title.setText(article.title);
+            holder.title.setText(article.getTitle());
+            holder.date.setText(article.getDate());
             if (article.getAuthor() != null && !article.getAuthor().isEmpty()) {
                 holder.author.setText(article.getAuthor());
             }
@@ -118,13 +119,15 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
 
         private static class ViewHolder {
             ImageView image, imageback;
-            TextView title, author;
+            TextView title, author, date;
 
             public ViewHolder(View v) {
                 image = (ImageView) v.findViewById(R.id.image);
                 imageback = (ImageView) v.findViewById(R.id.imageback);
                 title = (TextView) v.findViewById(R.id.title);
                 author = (TextView) v.findViewById(R.id.author);
+                date = (TextView) v.findViewById(R.id.date);
+
             }
         }
     }

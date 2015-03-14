@@ -8,9 +8,6 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -40,7 +37,7 @@ public class ArticleDetailActivity extends ActionBarActivity {
     public static void startArticleDetailActivity(Context context, ArticleItem articleItem) {
         Intent intent = new Intent(context, ArticleDetailActivity.class);
         // Put the article data in the intent
-        intent.putExtra(EXT_TITLE, articleItem.title);
+        intent.putExtra(EXT_TITLE, articleItem.getTitle());
         intent.putExtra(EXT_DESC, articleItem.description);
         intent.putExtra(EXT_AUTHOR, articleItem.getAuthor());
         intent.putExtra(EXT_DATE, articleItem.getDate());

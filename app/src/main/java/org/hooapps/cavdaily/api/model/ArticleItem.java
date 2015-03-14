@@ -1,6 +1,6 @@
 package org.hooapps.cavdaily.api.model;
 
-import android.util.Log;
+import android.text.Html;
 
 import org.simpleframework.xml.Attribute;
 import org.simpleframework.xml.Element;
@@ -17,13 +17,17 @@ public class ArticleItem {
     @Element
     public String title;
 
-    @Element
+    public String getTitle() {
+        return title == null ? null : Html.fromHtml(title).toString();
+    }
+
+    @Element(required = false)
     public String description;
 
-    @Element
+    @Element(required = false)
     public String link;
 
-    @Element
+    @Element(required = false)
     public String guid;
 
     @Element
@@ -37,7 +41,7 @@ public class ArticleItem {
     private String author;
 
     public String getAuthor() {
-        return author.split("[\\(\\)]")[1];
+        return author == null ? null : author.split("[\\(\\)]")[1];
     }
 
     @ElementList(entry = "content", required = false, inline = true)
