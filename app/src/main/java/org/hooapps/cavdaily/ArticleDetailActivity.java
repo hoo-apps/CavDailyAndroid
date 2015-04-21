@@ -4,10 +4,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.widget.ShareActionProvider;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -26,6 +30,9 @@ public class ArticleDetailActivity extends ActionBarActivity {
     private static final String EXT_DATE = "ext_date";
     private static final String EXT_AUTHOR = "ext_author";
     private static final String EXT_MEDIA = "ext_media";
+    private static final String EXT_URL = "ext_url";
+
+    private ShareActionProvider mShareActionProvider;
 
     private TextView titleView;
     private TextView mainDescriptionView;
@@ -34,6 +41,9 @@ public class ArticleDetailActivity extends ActionBarActivity {
     private ImageView primaryImageView;
     private Toolbar toolbar;
 
+    private String link;
+    private String title;
+
     public static void startArticleDetailActivity(Context context, ArticleItem articleItem) {
         Intent intent = new Intent(context, ArticleDetailActivity.class);
         // Put the article data in the intent
@@ -41,6 +51,7 @@ public class ArticleDetailActivity extends ActionBarActivity {
         intent.putExtra(EXT_DESC, articleItem.description);
         intent.putExtra(EXT_AUTHOR, articleItem.getAuthor());
         intent.putExtra(EXT_DATE, articleItem.getDate());
+        intent.putExtra(EXT_URL, articleItem.link);
         if (articleItem.hasMedia()) {
             ArrayList<String> mediaLinks = (ArrayList<String>) articleItem.getMediaUrls();
             intent.putStringArrayListExtra(EXT_MEDIA, mediaLinks);
@@ -54,11 +65,12 @@ public class ArticleDetailActivity extends ActionBarActivity {
         setContentView(R.layout.activity_article_detail);
 
         // Retrieve the data from the intent
-        String title = getIntent().getStringExtra(EXT_TITLE);
+        title = getIntent().getStringExtra(EXT_TITLE);
         String author = getIntent().getStringExtra(EXT_AUTHOR);
         String pubDate = getIntent().getStringExtra(EXT_DATE);
         String mainDescriptionHTML = getIntent().getStringExtra(EXT_DESC);
         ArrayList<String> mediaLinks = getIntent().getStringArrayListExtra(EXT_MEDIA);
+        link = getIntent().getStringExtra(EXT_URL);
 
         // Retrieve the views
         authorView = (TextView) findViewById(R.id.author);
@@ -116,19 +128,44 @@ public class ArticleDetailActivity extends ActionBarActivity {
                 }
 
                 @Override
-                public void onBitmapFailed(Drawable errorDrawable) {
-
-                }
+                public void onBitmapFailed(Drawable errorDrawable) {}
 
                 @Override
-                public void onPrepareLoad(Drawable placeHolderDrawable) {
-
-                }
+                public void onPrepareLoad(Drawable placeHolderDrawable) {}
             });
 
         } else {
             Picasso.with(this).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(primaryImageView);
         }
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_article_detail, menu);
+
+        // Get Share MenuItem and set intent for the ShareActionProvider
+        MenuItem shareItem = menu.findItem(R.id.menu_item_share);
+        mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+        mShareActionProvider.setShareIntent(getShareIntent());
+
+        // Display the menu
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }
+
+    private Intent getShareIntent() {
+        Intent shareIntent = new Intent();
+        shareIntent.setAction(Intent.ACTION_SEND);
+        String subject = String.format("CavDaily Article: %s", title);
+        shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, link);
+        shareIntent.setType("text/plain");
+        return shareIntent;
     }
 }
