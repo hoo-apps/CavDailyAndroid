@@ -1,0 +1,8 @@
+<resources>
+
+    <string name="app_name">Android_SDK_OpenX</string>
+    <string name="skip_time_over_text">Skip</string>
+    <string name="skip_default_text">Skip in</string>
+    <string name="visit_advertiser_default">Visit Advertiser</string>
+
+</resources>
