@@ -7,18 +7,18 @@ import retrofit.http.Path;
 
 public interface CavDailyFeedService {
 
-    public static final String BASE_ENDPOINT = "http://www.cavalierdaily.com/dart/feed";
+    String BASE_ENDPOINT = "http://www.cavalierdaily.com/dart/feed";
 
     // Feed Categories
-    public static final String NEWS = "news-full";
-    public static final String FOCUS = "focus-full";
-    public static final String SPORTS = "sports-full";
-    public static final String OPINION = "opinion-full";
-    public static final String LIFE = "life-full";
-    public static final String AE = "ae-full";
-    public static final String HS = "health-science";
-    public static final String MULTIMEDIA = "multimedia-full";
-    public static final String TOP = "top-stories-full";
+    String NEWS = "news-full";
+    String FOCUS = "focus-full";
+    String SPORTS = "sports-full";
+    String OPINION = "opinion-full";
+    String LIFE = "life-full";
+    String AE = "ae-full";
+    String HS = "health-science";
+    String MULTIMEDIA = "multimedia-full";
+    String TOP = "top-stories-full";
 
     @GET("/{category}.xml")
     ArticleFeedResponse getCavDailyFeed(@Path("category") String type);

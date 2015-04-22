@@ -12,27 +12,31 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
 import org.hooapps.cavdaily.api.model.ArticleItem;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ArticleDetailActivity extends ActionBarActivity {
-
-    private static final String EXT_TITLE = "ext_title";
-    private static final String EXT_DESC = "ext_description";
-    private static final String EXT_DATE = "ext_date";
-    private static final String EXT_AUTHOR = "ext_author";
-    private static final String EXT_MEDIA = "ext_media";
-    private static final String EXT_URL = "ext_url";
+    private static final String EXT_JSON_ARTICLE = "ext_json_article";
+    private static final String EXT_JSON_NEXT_ARTICLES = "ext_json_next_articles";
 
     private ShareActionProvider mShareActionProvider;
+
+    private ArticleItem articleItem;
+    private List<ArticleItem> nextArticles;
+    private List<View> nextArticleViews;
 
     private TextView titleView;
     private TextView mainDescriptionView;
@@ -41,21 +45,17 @@ public class ArticleDetailActivity extends ActionBarActivity {
     private ImageView primaryImageView;
     private Toolbar toolbar;
 
-    private String link;
-    private String title;
+    private Context context;
 
-    public static void startArticleDetailActivity(Context context, ArticleItem articleItem) {
+    public static void startArticleDetailActivity(Context context, ArticleItem articleItem, ArrayList<ArticleItem> nextArticles) {
         Intent intent = new Intent(context, ArticleDetailActivity.class);
         // Put the article data in the intent
-        intent.putExtra(EXT_TITLE, articleItem.getTitle());
-        intent.putExtra(EXT_DESC, articleItem.description);
-        intent.putExtra(EXT_AUTHOR, articleItem.getAuthor());
-        intent.putExtra(EXT_DATE, articleItem.getDate());
-        intent.putExtra(EXT_URL, articleItem.link);
-        if (articleItem.hasMedia()) {
-            ArrayList<String> mediaLinks = (ArrayList<String>) articleItem.getMediaUrls();
-            intent.putStringArrayListExtra(EXT_MEDIA, mediaLinks);
-        }
+        Gson gson = new Gson();
+        intent.putExtra(EXT_JSON_ARTICLE, gson.toJson(articleItem, ArticleItem.class));
+
+        Type listType = new TypeToken<ArrayList<ArticleItem>>(){}.getType();
+        intent.putExtra(EXT_JSON_NEXT_ARTICLES, gson.toJson(nextArticles, listType));
+
         context.startActivity(intent);
     }
 
@@ -64,13 +64,16 @@ public class ArticleDetailActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
 
+        this.context = this;
+
         // Retrieve the data from the intent
-        title = getIntent().getStringExtra(EXT_TITLE);
-        String author = getIntent().getStringExtra(EXT_AUTHOR);
-        String pubDate = getIntent().getStringExtra(EXT_DATE);
-        String mainDescriptionHTML = getIntent().getStringExtra(EXT_DESC);
-        ArrayList<String> mediaLinks = getIntent().getStringArrayListExtra(EXT_MEDIA);
-        link = getIntent().getStringExtra(EXT_URL);
+        Gson gson = new Gson();
+        String articleStr = getIntent().getStringExtra(EXT_JSON_ARTICLE);
+        articleItem = gson.fromJson(articleStr, ArticleItem.class);
+
+        Type listType = new TypeToken<ArrayList<ArticleItem>>(){}.getType();
+        String nextArticleStr = getIntent().getStringExtra(EXT_JSON_NEXT_ARTICLES);
+        nextArticles = gson.fromJson(nextArticleStr, listType);
 
         // Retrieve the views
         authorView = (TextView) findViewById(R.id.author);
@@ -78,8 +81,15 @@ public class ArticleDetailActivity extends ActionBarActivity {
         titleView = (TextView) findViewById(R.id.title);
         mainDescriptionView = (TextView) findViewById(R.id.main_description);
         primaryImageView = (ImageView) findViewById(R.id.primary_image);
-        toolbar = (Toolbar) this.findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
 
+        // Add all views for the next articles to a list
+        nextArticleViews = new ArrayList<>();
+        nextArticleViews.add(findViewById(R.id.next_article_1));
+        nextArticleViews.add(findViewById(R.id.next_article_2));
+        nextArticleViews.add(findViewById(R.id.next_article_3));
+
+        configureNextArticleViews();
 
         // Configure ActionBar
         if (toolbar != null) {
@@ -91,22 +101,22 @@ public class ArticleDetailActivity extends ActionBarActivity {
         }
 
         // Format the author and date strings
-        authorView.setText(author);
-        dateView.setText(pubDate);
+        authorView.setText(articleItem.getAuthor());
+        dateView.setText(articleItem.getDate());
 
-        titleView.setText(Html.fromHtml(title));
+        titleView.setText(articleItem.getTitle());
 
         // Handle HTML formatting
         // TODO: CONSIDER HANDLING JS GRAPHS
-        mainDescriptionHTML = mainDescriptionHTML.replaceAll("<p>", "")
+        String mainDescriptionHTML = articleItem.description.replaceAll("<p>", "")
                 .replaceAll("</p>", "<br><br>")             // Still include line breaks without <p></p>
                 .replaceAll("<html>.*?</html>", "")           // Remove nested HTML with JS
                 .replaceAll("<a.*?>", "")                     // Remove links
                 .replaceAll("</a>", "");
         mainDescriptionView.setText(Html.fromHtml(mainDescriptionHTML));
 
-        if (mediaLinks != null && mediaLinks.size() != 0) {
-            //Picasso.with(this).load(mediaLinks.get(0)).placeholder(R.drawable.article_filler).into(primaryImageView);
+        if (articleItem.hasMedia()) {
+            List<String> mediaLinks = articleItem.getMediaUrls();
             Picasso.with(this).load(mediaLinks.get(0)).placeholder(R.drawable.article_filler).into(new Target() {
 
                 @Override
@@ -140,6 +150,59 @@ public class ArticleDetailActivity extends ActionBarActivity {
 
     }
 
+    private void configureNextArticleViews() {
+        ImageView image, imageback;
+        TextView title, author, date;
+        ArticleItem article;
+
+        for (int i = 0; i < nextArticles.size(); i++) {
+            article = nextArticles.get(i);
+
+            // Get the views from the include layout
+            View rootIncludeView = nextArticleViews.get(i);
+            image = (ImageView) rootIncludeView.findViewById(R.id.image);
+            imageback = (ImageView) rootIncludeView.findViewById(R.id.imageback);
+            title = (TextView) rootIncludeView.findViewById(R.id.title);
+            author = (TextView) rootIncludeView.findViewById(R.id.author);
+            date = (TextView) rootIncludeView.findViewById(R.id.date);
+
+            // Set the data for the include layout views
+            title.setText(article.getTitle());
+            date.setText(article.getDate());
+            if (article.getAuthor() != null && !article.getAuthor().isEmpty()) {
+                author.setText(article.getAuthor());
+            }
+            if (article.contentList == null) {
+                Picasso.with(this).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(image);
+                Picasso.with(this).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(imageback);
+            } else {
+                Picasso.with(this).load(article.getMediaUrls().get(0)).placeholder(R.drawable.article_filler).resize(64*4, 64*4).centerInside().into(image);
+                Picasso.with(this).load(article.getMediaUrls().get(0)).placeholder(R.drawable.article_filler).resize(64*4, 64*4).centerInside().into(imageback);
+            }
+
+            // Bind the click listener for the ViewGroup
+            final int index = i;
+            rootIncludeView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ArrayList<ArticleItem> newNextArticles = new ArrayList<>();
+                    for (int j = 0; j < nextArticles.size(); j++) {
+                        // Add articles not equal to current one
+                        if (j != index) {
+                            newNextArticles.add(nextArticles.get(j));
+                        }
+                    }
+                    newNextArticles.add(articleItem);
+
+                    ArticleItem newArticleItem = nextArticles.get(index);
+
+                    // Launch a new ArticleDetailActivity to display the article
+                    ArticleDetailActivity.startArticleDetailActivity(context, newArticleItem, newNextArticles);
+                }
+            });
+        }
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
@@ -156,15 +219,20 @@ public class ArticleDetailActivity extends ActionBarActivity {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case android.R.id.home:
+                super.onBackPressed();
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 
     private Intent getShareIntent() {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        String subject = String.format("CavDaily Article: %s", title);
+        String subject = String.format("CavDaily Article: %s", articleItem.getTitle());
         shareIntent.putExtra(Intent.EXTRA_SUBJECT, subject);
-        shareIntent.putExtra(Intent.EXTRA_TEXT, link);
+        shareIntent.putExtra(Intent.EXTRA_TEXT, articleItem.link);
         shareIntent.setType("text/plain");
         return shareIntent;
     }

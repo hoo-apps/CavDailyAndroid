@@ -13,7 +13,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
@@ -27,6 +29,7 @@ import org.hooapps.cavdaily.api.model.RedditData;
 import org.simpleframework.xml.Serializer;
 import org.simpleframework.xml.core.Persister;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import retrofit.converter.SimpleXMLConverter;
@@ -51,8 +54,17 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
 
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        ArticleItem articleItem = (ArticleItem) getListAdapter().getItem(position);
-        ArticleDetailActivity.startArticleDetailActivity(getActivity(), articleItem);
+        ListAdapter adapter = getListAdapter();
+
+        ArticleItem articleItem = (ArticleItem) adapter.getItem(position);
+
+        ArrayList<ArticleItem> nextArticles = new ArrayList<>();
+        int numArticles = adapter.getCount();
+        for (int i = 0; i < 3; i++) {
+            nextArticles.add((ArticleItem) adapter.getItem((position+1+i) % numArticles));
+        }
+
+        ArticleDetailActivity.startArticleDetailActivity(getActivity(), articleItem, nextArticles);
     }
 
     @Override
@@ -109,9 +121,10 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             }
             if (article.contentList == null) {
                 Picasso.with(context).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(holder.image);
+                Picasso.with(context).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(holder.imageback);
             } else {
-                Picasso.with(context).load(article.getMediaUrls().get(0)).into(holder.image);
-                Picasso.with(context).load(article.getMediaUrls().get(0)).placeholder(R.drawable.article_filler).into(holder.imageback);
+                Picasso.with(context).load(article.getMediaUrls().get(0)).placeholder(R.drawable.article_filler).resize(64*4, 64*4).centerInside().into(holder.image);
+                Picasso.with(context).load(article.getMediaUrls().get(0)).placeholder(R.drawable.article_filler).resize(64*4, 64*4).centerInside().into(holder.imageback);
             }
 
             return convertView;
@@ -122,11 +135,12 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             TextView title, author, date;
 
             public ViewHolder(View v) {
-                image = (ImageView) v.findViewById(R.id.image);
-                imageback = (ImageView) v.findViewById(R.id.imageback);
-                title = (TextView) v.findViewById(R.id.title);
-                author = (TextView) v.findViewById(R.id.author);
-                date = (TextView) v.findViewById(R.id.date);
+                View rootIncludeView = v.findViewById(R.id.interior_view);
+                image = (ImageView) rootIncludeView.findViewById(R.id.image);
+                imageback = (ImageView) rootIncludeView.findViewById(R.id.imageback);
+                title = (TextView) rootIncludeView.findViewById(R.id.title);
+                author = (TextView) rootIncludeView.findViewById(R.id.author);
+                date = (TextView) rootIncludeView.findViewById(R.id.date);
 
             }
         }

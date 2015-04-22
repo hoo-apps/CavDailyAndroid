@@ -77,6 +77,44 @@
                 android:paddingLeft="@dimen/horizontal_padding"
                 android:paddingRight="@dimen/horizontal_padding"/>
 
+            <!-- Related Articles Section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/related_articles"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@color/cd_orange"
+                android:paddingLeft="@dimen/horizontal_padding"
+                android:paddingRight="@dimen/horizontal_padding"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+
+            <include
+                android:id="@+id/next_article_1"
+                layout="@layout/view_list_item_image_interior" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+
+            <include
+                android:id="@+id/next_article_2"
+                layout="@layout/view_list_item_image_interior" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey"/>
+
+            <include
+                android:id="@+id/next_article_3"
+                layout="@layout/view_list_item_image_interior" />
+
         </LinearLayout>
 
     </ScrollView>

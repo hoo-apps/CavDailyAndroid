@@ -13,88 +13,9 @@
         android:layout_height="wrap_content"
         app:cardUseCompatPadding="true">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <oak.widget.AspectRatioLayout
-                    android:layout_height="wrap_content"
-                    android:layout_width="match_parent"
-                    app:oakAspectRatio="16:9">
-                    <ImageView
-                        android:id="@+id/imageback"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:scaleType="centerCrop"
-                        android:alpha="0.75"
-                        android:tint="#c0000000"
-                        android:tintMode="src_over" />
-                    <oak.widget.AspectRatioLayout
-                        android:layout_height="wrap_content"
-                        android:layout_width="match_parent"
-                        app:oakAspectRatio="16:9">
-                        <ImageView
-                            android:id="@+id/image"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:scaleType="fitCenter"
-                            android:alpha="1.0" />
-                    </oak.widget.AspectRatioLayout>
-                </oak.widget.AspectRatioLayout>
-            </RelativeLayout>
+        <include
+            android:id="@+id/interior_view"
+            layout="@layout/view_list_item_image_interior" />
 
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/vertical_padding"
-                android:paddingRight="@dimen/horizontal_padding_half"
-                android:paddingLeft="@dimen/horizontal_padding_half"
-                android:textAppearance="?android:attr/textAppearanceMedium"
-                android:textStyle="bold"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/vertical_padding"
-                android:paddingBottom="@dimen/vertical_padding"
-                android:paddingRight="@dimen/horizontal_padding_half"
-                android:paddingLeft="@dimen/horizontal_padding_half">
-
-                <TextView
-                    android:id="@+id/author"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:gravity="start"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-                <TextView
-                    android:id="@+id/date"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:gravity="end"
-                    android:textAppearance="?android:attr/textAppearanceSmall"/>
-
-            </LinearLayout>
-
-            <!--
-            <TextView
-                android:id="@+id/author"
-                android:layout_marginBottom="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginRight="8dp"
-                android:textAppearance="?android:attr/textAppearanceSmall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-                -->
-
-        </LinearLayout>
     </android.support.v7.widget.CardView>
 </FrameLayout>
