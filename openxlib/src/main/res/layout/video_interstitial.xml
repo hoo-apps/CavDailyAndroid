@@ -1,0 +1,276 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/emsVidIntLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:padding="0dp"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp" >
+
+    <RelativeLayout
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:background="#000000"
+        android:padding="0dp"
+        android:paddingBottom="0dp"
+        android:paddingLeft="0dp"
+        android:paddingRight="0dp"
+        android:paddingTop="0dp" >
+
+        <com.openx.view.video.PublisherVideoView
+            android:id="@+id/emsVideoView"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_centerInParent="true"
+            android:background="#00000000"
+            android:padding="0dp"
+            android:paddingBottom="0dp"
+            android:paddingLeft="0dp"
+            android:paddingRight="0dp"
+            android:paddingTop="0dp"
+            android:visibility="visible" />
+
+        <ProgressBar
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:background="#000000"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/playAgain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@drawable/skippable_btn"
+            android:clickable="true"
+            android:padding="10dp"
+            android:shadowColor="#000000"
+            android:shadowDx="1.0"
+            android:shadowDy="1.0"
+            android:shadowRadius="1.0"
+            android:text="Play Again"
+            android:textColor="#ffffff"
+            android:textSize="19dip"
+            android:textStyle="bold"
+            android:visibility="invisible" />
+
+        <RelativeLayout
+            android:id="@+id/top_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
+
+            <ImageButton
+                android:id="@+id/close_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_margin="5dp"
+                android:background="@drawable/openx_close_selector"
+                android:contentDescription="Pause"
+                android:padding="10dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:visibility="visible" />
+
+            <ImageButton
+                android:id="@+id/share_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_toLeftOf="@id/close_button"
+                android:background="@drawable/openx_share_selector"
+                android:contentDescription="Pause"
+                android:padding="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:visibility="invisible" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/bottom_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@drawable/video_bar_bottom_background"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageButton
+                android:id="@+id/play_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="#00000000"
+                android:contentDescription="Pause"
+                android:padding="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/openx_pause_selector" />
+
+            <TextView
+                android:id="@+id/emsVideoText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:background="#00000000"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:scrollHorizontally="true"
+                android:textColor="#ffffff"
+                android:textSize="12sp" >
+            </TextView>
+
+            <RelativeLayout
+                android:id="@+id/adBreakHolder"
+                android:layout_width="0dp"
+                android:layout_height="32dp"
+                android:layout_weight="1" >
+
+                <SeekBar
+                    android:id="@+id/scrubber"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="11dp"
+                    android:paddingRight="11dp"
+                    android:progressDrawable="@drawable/customprogressbar"
+                    android:thumb="@drawable/openx_scrubber_control"
+                    android:thumbOffset="12dp" />
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/txtDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="7dp"
+                android:background="#00000000"
+                android:clickable="false"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:inputType="none"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingTop="0dp"
+                android:scrollHorizontally="true"
+                android:textColor="#ffffff"
+                android:textSize="12sp" >
+            </TextView>
+
+            <ImageButton
+                android:id="@+id/sound_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#00000000"
+                android:scaleType="centerInside"
+                android:src="@drawable/openx_mute_selector" />
+
+            <ImageButton
+                android:id="@+id/toggle_expand"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:background="#00000000"
+                android:contentDescription="Pause"
+                android:padding="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/openx_fullscreen" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/skipHolder"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/openx_skip_holder_selector"
+            android:clickable="false"
+            android:enabled="false"
+            android:gravity="center_vertical"
+            android:visibility="invisible" >
+
+            <ImageButton
+                android:id="@+id/skip_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="6dp"
+                android:background="#00000000"
+                android:contentDescription="Pause"
+                android:padding="0dp"
+                android:paddingBottom="0dp"
+                android:paddingLeft="0dp"
+                android:paddingRight="0dp"
+                android:paddingTop="0dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/openx_skip_selector"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/overlaySkip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/skip_button"
+                android:padding="10dp"
+                android:shadowColor="#000000"
+                android:shadowDx="1.0"
+                android:shadowDy="1.0"
+                android:shadowRadius="1.0"
+                android:text=""
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/progressSkip"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/skip_button"
+                android:clickable="false"
+                android:padding="10dp"
+                android:shadowColor="#000000"
+                android:shadowDx="1.0"
+                android:shadowDy="1.0"
+                android:shadowRadius="1.0"
+                android:text=""
+                android:textColor="#ffffff" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>
