@@ -1,1 +1,1 @@
-include ':app', ':openxlib'
+include ':openxlib', ':app'

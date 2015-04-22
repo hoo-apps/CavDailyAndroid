@@ -122,13 +122,26 @@ public class MainActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void swapListFragment(String category) {
+
+    private Fragment createListFragment(String category) {
         // Create a new ListFrag with the correct args
         Bundle bundle = new Bundle();
         bundle.putString(CategoryFragment.ARG_CATEGORY, category);
         Fragment frag = new CategoryFragment();
         frag.setArguments(bundle);
+        return frag;
+    }
 
+    private Fragment createMediaListFragment(String category) {
+        // Create a new MediaListFrag with the correct args
+        Bundle bundle = new Bundle();
+        bundle.putString(MediaListFragment.ARG_CATEGORY, category);
+        Fragment frag = new MediaListFragment();
+        frag.setArguments(bundle);
+        return frag;
+    }
+
+    private void swapListFragment(Fragment frag) {
         // Swap the fragment
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container, frag);
@@ -140,39 +153,42 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-            String category = CavDailyFeedService.NEWS;
+            Fragment frag = createListFragment(CavDailyFeedService.NEWS);
 
             switch (position) {
                 // Top Stories
-                case 0: category = CavDailyFeedService.TOP;
+                case 0: frag = createListFragment(CavDailyFeedService.TOP);
                     break;
                 // News
-                case 1: category = CavDailyFeedService.NEWS;
+                case 1: frag = createListFragment(CavDailyFeedService.NEWS);
                     break;
                 // Sports
-                case 2: category = CavDailyFeedService.SPORTS;
+                case 2: frag = createListFragment(CavDailyFeedService.SPORTS);
                     break;
                 // Opinion
-                case 3: category = CavDailyFeedService.OPINION;
+                case 3: frag = createListFragment(CavDailyFeedService.OPINION);
                     break;
                 // Life
-                case 4: category = CavDailyFeedService.AE;
+                case 4: frag = createListFragment(CavDailyFeedService.AE);
                     break;
                 // A&E
-                case 5: category = CavDailyFeedService.LIFE;
+                case 5: frag = createListFragment(CavDailyFeedService.LIFE);
                     break;
                 // Focus
-                case 6: category = CavDailyFeedService.FOCUS;
+                case 6: frag = createListFragment(CavDailyFeedService.FOCUS);
                     break;
                 // H&S
-                case 7: category = CavDailyFeedService.HS;
+                case 7: frag = createListFragment(CavDailyFeedService.HS);
                     break;
                 // Multimedia
-                case 8: category = CavDailyFeedService.MULTIMEDIA;
+                case 8: frag = createMediaListFragment(CavDailyFeedService.MULTIMEDIA);
+                    break;
+                default:
+                    frag = createListFragment(CavDailyFeedService.NEWS);
                     break;
             }
 
-            swapListFragment(category);
+            swapListFragment(frag);
             drawerLayout.closeDrawers();
         }
     }

@@ -14,7 +14,7 @@ import java.util.List;
 @Root(name = "item", strict = false)
 public class ArticleItem {
 
-    @Element
+    @Element(required = false)
     public String title;
 
     public String getTitle() {
@@ -30,7 +30,7 @@ public class ArticleItem {
     @Element(required = false)
     public String guid;
 
-    @Element
+    @Element(required = false)
     private String pubDate;
 
     public String getDate() {
