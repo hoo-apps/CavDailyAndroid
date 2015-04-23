@@ -7,10 +7,11 @@
         android:id="@+id/adBanner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        autorefreshinterval="milliseconds"
+        autorefreshinterval="30000"
         domain="http://ox-d.oncampusweb.com"
         adUnitID="53730469"
         autoStartLoading="true"/>
+
 </RelativeLayout>

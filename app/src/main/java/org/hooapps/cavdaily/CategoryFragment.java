@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.openx.view.AdBanner;
 import com.squareup.picasso.Picasso;
 
 import org.hooapps.cavdaily.api.CavDailyFeed;

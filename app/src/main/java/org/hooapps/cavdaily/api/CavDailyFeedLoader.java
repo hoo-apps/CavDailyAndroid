@@ -1,6 +1,7 @@
 package org.hooapps.cavdaily.api;
 
 import android.content.Context;
+import android.util.Log;
 
 import org.hooapps.cavdaily.api.model.ArticleFeedResponse;
 
@@ -20,7 +21,8 @@ public class CavDailyFeedLoader extends OakAsyncLoader<ArticleFeedResponse>{
 
     @Override
     public ArticleFeedResponse loadInBackground() {
-        ArticleFeedResponse response = CavDailyFeed.getService().getCavDailyFeed(category);
+        CavDailyFeedService service = CavDailyFeed.getService();
+        ArticleFeedResponse response = service.getCavDailyFeed(category);
         return response;
     }
 }
