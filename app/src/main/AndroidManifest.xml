@@ -8,17 +8,17 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name" >
+            android:label="@string/app_name"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,8 @@
         <activity
             android:name=".ImageActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.hooapps.cavdaily.MainActivity" />
@@ -36,7 +37,8 @@
         <activity
             android:name=".SelfActivity"
             android:label="@string/app_name"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.hooapps.cavdaily.MainActivity" />
@@ -44,10 +46,16 @@
         <activity
             android:name=".ArticleDetailActivity"
             android:label="@string/title_activity_article_detail"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".MainActivity"
+            android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="org.hooapps.cavdaily.MainActivity" />
+        </activity>
+        <activity
+            android:name=".GalleryPagerActivity"
+            android:label="@string/title_activity_gallery_pager"
+            android:screenOrientation="landscape">
         </activity>
     </application>
 

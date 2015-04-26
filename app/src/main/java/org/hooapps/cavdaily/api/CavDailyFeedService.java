@@ -16,7 +16,7 @@ public interface CavDailyFeedService {
     String OPINION = "opinion-full";
     String LIFE = "life-full";
     String AE = "ae-full";
-    String HS = "health-science";
+    String HS = "health-science-full";
     String MULTIMEDIA = "multimedia-full";
     String TOP = "top-stories-full";
 

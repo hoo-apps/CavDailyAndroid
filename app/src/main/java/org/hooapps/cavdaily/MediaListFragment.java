@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -47,7 +48,7 @@ public class MediaListFragment extends ListFragment implements LoaderManager.Loa
 
         ArticleItem articleItem = (ArticleItem) adapter.getItem(position);
 
-        //ArticleDetailActivity.startArticleDetailActivity(getActivity(), articleItem, nextArticles);
+        GalleryPagerActivity.startGalleryPagerActivity(getActivity(), articleItem);
     }
 
     @Override
