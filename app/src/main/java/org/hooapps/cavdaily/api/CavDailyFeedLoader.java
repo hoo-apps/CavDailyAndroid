@@ -1,15 +1,11 @@
 package org.hooapps.cavdaily.api;
 
 import android.content.Context;
-import android.util.Log;
 
 import org.hooapps.cavdaily.api.model.ArticleFeedResponse;
 
 import oak.util.OakAsyncLoader;
 
-/**
- * Created by ericrichardson on 2/18/15.
- */
 public class CavDailyFeedLoader extends OakAsyncLoader<ArticleFeedResponse>{
 
     private String category;
@@ -22,7 +18,14 @@ public class CavDailyFeedLoader extends OakAsyncLoader<ArticleFeedResponse>{
     @Override
     public ArticleFeedResponse loadInBackground() {
         CavDailyFeedService service = CavDailyFeed.getService();
-        ArticleFeedResponse response = service.getCavDailyFeed(category);
+
+        // Use a different url scheme for the top stories feed
+        ArticleFeedResponse response;
+        if (category.equals(CavDailyFeedService.TOP)) {
+            response = service.getCavDailyTopStoriesFeed();
+        } else {
+            response = service.getCavDailyFeed(category);
+        }
         return response;
     }
 }

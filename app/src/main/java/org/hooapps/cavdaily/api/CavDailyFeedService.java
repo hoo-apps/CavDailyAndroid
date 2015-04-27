@@ -7,11 +7,11 @@ import retrofit.http.Path;
 
 public interface CavDailyFeedService {
 
-    String BASE_ENDPOINT = "http://www.cavalierdaily.com/dart/feed";
-    String ALT_ENDPOINT = "http://www.cavalierdaily.com/servlet/feed";
+    String BASE_ENDPOINT = "http://www.cavalierdaily.com";
+    //String ALT_ENDPOINT = "http://www.cavalierdaily.com/servlet/feed";
 
     // Feed Categories
-    String TOP = "top-stories-full";
+    String TOP = "top-stories";
     String NEWS = "news-full";
     String FOCUS = "focus-full";
     String SPORTS = "sports-full";
@@ -21,6 +21,9 @@ public interface CavDailyFeedService {
     String HS = "health-science-full";
     String MULTIMEDIA = "multimedia-full";
 
-    @GET("/{category}.xml")
+    @GET("/dart/feed/{category}.xml")
     ArticleFeedResponse getCavDailyFeed(@Path("category") String type);
+
+    @GET("/servlet/feed/top-stories.xml")
+    ArticleFeedResponse getCavDailyTopStoriesFeed();
 }

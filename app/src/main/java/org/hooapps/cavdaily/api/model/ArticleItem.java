@@ -41,7 +41,14 @@ public class ArticleItem {
     private String author;
 
     public String getAuthor() {
-        return author == null ? null : author.split("[\\(\\)]")[1];
+        if (author == null)
+            return null;
+        else if (author.contains("("))
+            // webmaster@cavalierdaily.com (First Last) --> First Last
+            return author.split("[\\(\\)]")[1];
+        else
+            // First Last webmaster@cavalierdaily.com --> First Last
+            return author.replaceAll("\\s\\w*@.*", "");
     }
 
     @ElementList(entry = "content", required = false, inline = true)

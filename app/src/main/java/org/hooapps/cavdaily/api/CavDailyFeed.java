@@ -18,6 +18,7 @@ public class CavDailyFeed {
         return cavDailyFeedService;
     }
 
+    /*
     public static CavDailyFeedService getAltService() {
         if (cavDailyFeedService == null) {
             RestAdapter restAdapter = new RestAdapter.Builder()
@@ -28,5 +29,6 @@ public class CavDailyFeed {
         }
         return cavDailyFeedService;
     }
+    */
 
 }
