@@ -194,6 +194,7 @@ public class MainActivity extends ActionBarActivity {
 
             swapListFragment(frag);
             getSupportActionBar().setTitle(navDrawerAdapter.getItem(position));
+            navDrawer.setItemChecked(position, true);
             drawerLayout.closeDrawers();
         }
     }

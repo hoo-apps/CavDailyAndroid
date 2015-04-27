@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        adUnitID="537304691"
+        adUnitID="537618857"
         domain="ox-d.oncampusweb.com" />
 </RelativeLayout>
