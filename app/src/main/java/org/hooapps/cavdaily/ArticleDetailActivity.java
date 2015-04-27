@@ -119,6 +119,7 @@ public class ArticleDetailActivity extends ActionBarActivity {
                 .replaceAll("</a>", "");
         mainDescriptionView.setText(Html.fromHtml(mainDescriptionHTML));
 
+        // Load the image into the ImageView
         if (articleItem.hasMedia()) {
             List<String> mediaLinks = articleItem.getMediaUrls();
             Picasso.with(this).load(mediaLinks.get(0)).placeholder(R.drawable.article_filler).into(new Target() {
@@ -154,6 +155,15 @@ public class ArticleDetailActivity extends ActionBarActivity {
             Picasso.with(this).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(primaryImageView);
         }
 
+        // If article has pictures, bind listener to the ImageView to display images in a gallery
+        if (articleItem.hasMedia()) {
+            primaryImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    GalleryPagerActivity.startGalleryPagerActivity(context, articleItem);
+                }
+            });
+        }
     }
 
     private void configureNextArticleViews() {
