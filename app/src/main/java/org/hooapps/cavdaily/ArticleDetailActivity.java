@@ -21,6 +21,8 @@ import com.google.gson.reflect.TypeToken;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
+import com.openx.view.AdBanner;
+
 import org.hooapps.cavdaily.api.model.ArticleItem;
 
 import java.lang.reflect.Type;
@@ -46,6 +48,9 @@ public class ArticleDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
 
     private Context context;
+    private String link;
+    private String title;
+    AdBanner adBanner;
 
     public static void startArticleDetailActivity(Context context, ArticleItem articleItem, ArrayList<ArticleItem> nextArticles) {
         Intent intent = new Intent(context, ArticleDetailActivity.class);
@@ -63,6 +68,8 @@ public class ArticleDetailActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_article_detail);
+        adBanner = (AdBanner) findViewById(R.id.adBanner);
+        adBanner.load();
 
         this.context = this;
 

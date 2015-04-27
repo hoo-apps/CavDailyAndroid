@@ -18,4 +18,15 @@ public class CavDailyFeed {
         return cavDailyFeedService;
     }
 
+    public static CavDailyFeedService getAltService() {
+        if (cavDailyFeedService == null) {
+            RestAdapter restAdapter = new RestAdapter.Builder()
+                    .setEndpoint(CavDailyFeedService.ALT_ENDPOINT)
+                    .setConverter(new SimpleXMLConverter())
+                    .build();
+            cavDailyFeedService = restAdapter.create(CavDailyFeedService.class);
+        }
+        return cavDailyFeedService;
+    }
+
 }

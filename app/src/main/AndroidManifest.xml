@@ -54,9 +54,17 @@
         </activity>
         <activity
             android:name=".GalleryPagerActivity"
-            android:label="@string/title_activity_gallery_pager"
-            android:screenOrientation="landscape">
+            android:label="@string/title_activity_gallery_pager">
         </activity>
+        <activity
+            android:name="com.openx.sdk.browser.AdBrowserActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="adjustPan|stateHidden" >
+        </activity>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

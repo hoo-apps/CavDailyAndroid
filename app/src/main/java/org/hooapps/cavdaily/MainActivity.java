@@ -18,6 +18,9 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.openx.core.sdk.OXMManagersResolver;
+import com.openx.view.AdBanner;
+
 import org.hooapps.cavdaily.api.CavDailyFeedService;
 
 import java.util.ArrayList;
@@ -37,6 +40,7 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         if(savedInstanceState == null){
             // Set the fragment to initially load the news feed
             Bundle bundle = new Bundle();
@@ -189,6 +193,7 @@ public class MainActivity extends ActionBarActivity {
             }
 
             swapListFragment(frag);
+            getSupportActionBar().setTitle(navDrawerAdapter.getItem(position));
             drawerLayout.closeDrawers();
         }
     }
