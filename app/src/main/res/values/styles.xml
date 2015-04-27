@@ -10,6 +10,7 @@
         <item name="windowActionBar">false</item>
         <item name="drawerArrowStyle">@style/NavDrawerArrow</item>
         <item name="actionBarStyle">@style/ActionBar</item>
+        <item name="popupTheme">@style/Toolbar_Popup</item>
     </style>
 
     <style name="NavDrawerArrow" parent="Widget.AppCompat.DrawerArrowToggle">
@@ -25,5 +26,15 @@
 
     <style name="TitleText" parent="@style/TextAppearance.AppCompat.Widget.ActionBar.Title">
         <item name="android:textColor">#ffffff</item>
+    </style>
+
+    <style name="Toolbar" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">#fff</item>
+        <item name="android:background">@color/cd_blue</item>
+    </style>
+
+    <style name="Toolbar_Popup" parent="Base.ThemeOverlay.AppCompat.ActionBar">
+        <item name="android:textColorPrimary">#ffffff</item>
+        <item name="android:background">@color/cd_blue_dark</item>
     </style>
 </resources>

@@ -48,8 +48,6 @@ public class ArticleDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
 
     private Context context;
-    private String link;
-    private String title;
     AdBanner adBanner;
 
     public static void startArticleDetailActivity(Context context, ArticleItem articleItem, ArrayList<ArticleItem> nextArticles) {
@@ -114,7 +112,6 @@ public class ArticleDetailActivity extends ActionBarActivity {
         titleView.setText(articleItem.getTitle());
 
         // Handle HTML formatting
-        // TODO: CONSIDER HANDLING JS GRAPHS
         String mainDescriptionHTML = articleItem.description.replaceAll("<p>", "")
                 .replaceAll("</p>", "<br><br>")             // Still include line breaks without <p></p>
                 .replaceAll("<html>.*?</html>", "")           // Remove nested HTML with JS
@@ -122,6 +119,7 @@ public class ArticleDetailActivity extends ActionBarActivity {
                 .replaceAll("</a>", "");
         mainDescriptionView.setText(Html.fromHtml(mainDescriptionHTML));
 
+        // Load the image into the ImageView
         if (articleItem.hasMedia()) {
             List<String> mediaLinks = articleItem.getMediaUrls();
             Picasso.with(this).load(mediaLinks.get(0)).placeholder(R.drawable.article_filler).into(new Target() {
@@ -148,13 +146,24 @@ public class ArticleDetailActivity extends ActionBarActivity {
                 public void onBitmapFailed(Drawable errorDrawable) {}
 
                 @Override
-                public void onPrepareLoad(Drawable placeHolderDrawable) {}
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+                    primaryImageView.setImageDrawable(placeHolderDrawable);
+                }
             });
 
         } else {
             Picasso.with(this).load(R.drawable.article_filler).placeholder(R.drawable.article_filler).into(primaryImageView);
         }
 
+        // If article has pictures, bind listener to the ImageView to display images in a gallery
+        if (articleItem.hasMedia()) {
+            primaryImageView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    GalleryPagerActivity.startGalleryPagerActivity(context, articleItem);
+                }
+            });
+        }
     }
 
     private void configureNextArticleViews() {
