@@ -18,9 +18,6 @@ import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.openx.core.sdk.OXMManagersResolver;
-import com.openx.view.AdBanner;
-
 import org.hooapps.cavdaily.api.CavDailyFeedService;
 
 import java.util.ArrayList;
@@ -61,11 +58,6 @@ public class MainActivity extends ActionBarActivity {
         navDrawer = (ListView) this.findViewById(R.id.left_drawer);
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
 
-        if (toolbar != null) {
-            toolbar.setTitle(R.string.app_name);
-            setSupportActionBar(toolbar);
-        }
-
         // Configure the adapter for the Nav Drawer
         ArrayList<String> navDrawerItems = new ArrayList<>(Arrays.asList(
                 getResources().getStringArray(R.array.nav_drawer_items)
@@ -73,6 +65,11 @@ public class MainActivity extends ActionBarActivity {
         navDrawerAdapter = new NavDrawerAdapter(this, navDrawerItems);
         navDrawer.setAdapter(navDrawerAdapter);
         navDrawer.setOnItemClickListener(new NavDrawerListener());
+
+        if (toolbar != null) {
+            toolbar.setTitle(navDrawerAdapter.getItem(0));
+            setSupportActionBar(toolbar);
+        }
 
         // Bind the DrawerToggle with the Drawer
         drawerToggle = new ActionBarDrawerToggle(

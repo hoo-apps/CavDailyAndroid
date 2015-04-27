@@ -48,8 +48,6 @@ public class ArticleDetailActivity extends ActionBarActivity {
     private Toolbar toolbar;
 
     private Context context;
-    private String link;
-    private String title;
     AdBanner adBanner;
 
     public static void startArticleDetailActivity(Context context, ArticleItem articleItem, ArrayList<ArticleItem> nextArticles) {
@@ -114,7 +112,6 @@ public class ArticleDetailActivity extends ActionBarActivity {
         titleView.setText(articleItem.getTitle());
 
         // Handle HTML formatting
-        // TODO: CONSIDER HANDLING JS GRAPHS
         String mainDescriptionHTML = articleItem.description.replaceAll("<p>", "")
                 .replaceAll("</p>", "<br><br>")             // Still include line breaks without <p></p>
                 .replaceAll("<html>.*?</html>", "")           // Remove nested HTML with JS
@@ -148,7 +145,9 @@ public class ArticleDetailActivity extends ActionBarActivity {
                 public void onBitmapFailed(Drawable errorDrawable) {}
 
                 @Override
-                public void onPrepareLoad(Drawable placeHolderDrawable) {}
+                public void onPrepareLoad(Drawable placeHolderDrawable) {
+                    primaryImageView.setImageDrawable(placeHolderDrawable);
+                }
             });
 
         } else {
