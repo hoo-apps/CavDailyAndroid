@@ -1,0 +1,33 @@
+<com.nirhart.parallaxscroll.views.ParallaxScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <oak.widget.AspectRatioLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:oakAspectRatio="16:9">
+
+            <ImageView
+                android:id="@+id/primary_image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"/>
+
+        </oak.widget.AspectRatioLayout>
+
+        <com.willowtreeapps.saguaro.android.widget.OpenSourceTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="@dimen/horizontal_padding"/>
+
+    </LinearLayout>
+
+</com.nirhart.parallaxscroll.views.ParallaxScrollView>

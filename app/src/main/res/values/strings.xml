@@ -21,6 +21,7 @@
         <item name="health_and_sci">Health &amp; Science</item>
         <item name="multimedia">Multimedia</item>
         <item name="find_a_paper">Find a Paper</item>
+        <item name="about">About</item>
     </string-array>
     <string name="title_activity_article_detail">ArticleDetail</string>
 

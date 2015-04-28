@@ -170,7 +170,11 @@ public class MainActivity extends ActionBarActivity {
                 // Multimedia
                 case 8: frag = createMediaListFragment(CavDailyFeedService.MULTIMEDIA);
                     break;
+                // Find a Paper
                 case 9: frag = new PaperLocationFragment();
+                    break;
+                // About
+                case 10: frag = new AboutFragment();
                     break;
                 default:
                     frag = createListFragment(CavDailyFeedService.NEWS);
