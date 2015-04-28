@@ -9,9 +9,10 @@
 
     <include layout="@layout/toolbar"/>
 
-    <ScrollView
+    <com.nirhart.parallaxscroll.views.ParallaxScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        app:parallax_factor="2.0">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -31,97 +32,105 @@
 
             </oak.widget.AspectRatioLayout>
 
-            <include layout="@layout/test_ad_banner" />
-            <include layout="@layout/ad_banner" />
-
-            <TextView
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/cd_orange"
-                android:paddingTop="@dimen/vertical_padding"
-                android:paddingBottom="@dimen/vertical_padding"
-                android:paddingLeft="@dimen/horizontal_padding"
-                android:paddingRight="@dimen/horizontal_padding"/>
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:paddingTop="@dimen/vertical_padding"
-                android:paddingBottom="@dimen/vertical_padding"
-                android:paddingLeft="@dimen/horizontal_padding"
-                android:paddingRight="@dimen/horizontal_padding"
-                android:background="@color/grey">
+                android:orientation="vertical"
+                android:background="@android:color/white">
+
+                <include layout="@layout/test_ad_banner" />
+                <include layout="@layout/ad_banner" />
 
                 <TextView
-                    android:id="@+id/author"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/title"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="start"/>
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/cd_orange"
+                    android:paddingTop="@dimen/vertical_padding"
+                    android:paddingBottom="@dimen/vertical_padding"
+                    android:paddingLeft="@dimen/horizontal_padding"
+                    android:paddingRight="@dimen/horizontal_padding" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingTop="@dimen/vertical_padding"
+                    android:paddingBottom="@dimen/vertical_padding"
+                    android:paddingLeft="@dimen/horizontal_padding"
+                    android:paddingRight="@dimen/horizontal_padding"
+                    android:background="@color/grey">
+
+                    <TextView
+                        android:id="@+id/author"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="start"/>
+
+                    <TextView
+                        android:id="@+id/date"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"/>
+
+
+                </LinearLayout>
 
                 <TextView
-                    android:id="@+id/date"
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
+                    android:id="@+id/main_description"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="end"/>
+                    android:paddingTop="@dimen/vertical_padding"
+                    android:paddingBottom="@dimen/vertical_padding"
+                    android:paddingLeft="@dimen/horizontal_padding"
+                    android:paddingRight="@dimen/horizontal_padding"/>
 
+                <!-- Related Articles Section -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/related_articles"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/cd_orange"
+                    android:paddingLeft="@dimen/horizontal_padding"
+                    android:paddingRight="@dimen/horizontal_padding"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"/>
+
+                <include
+                    android:id="@+id/next_article_1"
+                    layout="@layout/view_list_item_image_interior" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"/>
+
+                <include
+                    android:id="@+id/next_article_2"
+                    layout="@layout/view_list_item_image_interior" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/grey"/>
+
+                <include
+                    android:id="@+id/next_article_3"
+                    layout="@layout/view_list_item_image_interior" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/main_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:paddingTop="@dimen/vertical_padding"
-                android:paddingBottom="@dimen/vertical_padding"
-                android:paddingLeft="@dimen/horizontal_padding"
-                android:paddingRight="@dimen/horizontal_padding"/>
-
-            <!-- Related Articles Section -->
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/related_articles"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                android:textColor="@color/cd_orange"
-                android:paddingLeft="@dimen/horizontal_padding"
-                android:paddingRight="@dimen/horizontal_padding"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey"/>
-
-            <include
-                android:id="@+id/next_article_1"
-                layout="@layout/view_list_item_image_interior" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey"/>
-
-            <include
-                android:id="@+id/next_article_2"
-                layout="@layout/view_list_item_image_interior" />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/grey"/>
-
-            <include
-                android:id="@+id/next_article_3"
-                layout="@layout/view_list_item_image_interior" />
-
         </LinearLayout>
 
-    </ScrollView>
+    </com.nirhart.parallaxscroll.views.ParallaxScrollView>
 
 </LinearLayout>
