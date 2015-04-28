@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Document>
+    <Placemark>
+        <name>Copeley/Law School Bus Stop</name>
+        <description>Box by garbage can and lamp post.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5102212,38.0520112,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>North Grounds Rec Center</name>
+        <description>Box by entrance steps.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5128498,38.0508454,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Faulkner Residences</name>
+        <description>Box by parking lot and mailboxes.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5123348,38.0489106,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Days Inn</name>
+        <description>Rack Inside</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.493613,38.058322,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Quality Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.492583,38.0577475,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Bodo's Bagels- Emmet St/29N</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4958124,38.0561086,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Carruthers Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5015416,38.0499245,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Darden School of Business</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5139441,38.052383,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Center For Politics</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5155535,38.0491134,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Miller Center for Public Affairs</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.51359010000002,38.0477278,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>University Police</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5223663,38.0464689,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>McCue Center</name>
+        <description>Box on sidewalk out front.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5072708,38.0452268,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Emmet-Ivy Parking Garage</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5079038,38.0416612,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Alumni Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5079682,38.0380615,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Madison Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5028076,38.0369884,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Alderman Library</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5052538,38.0363969,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Clemons Library</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5062194,38.0363631,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Special Collections Library</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5058546,38.0361096,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Peabody Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5059619,38.0356025,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>University Bookstore</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5073566,38.0359575,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Monroe Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5060906,38.0350279,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Ruffner Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5091376,38.0350279,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>The Castle</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5106075,38.0357039,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Physics Building</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5100603,38.0340984,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Thornton Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5096526,38.0333125,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Olsson Hall/Engineer's Way</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5109401,38.0320026,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Bryant Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5128391,38.0303716,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Gooch-Dillard Bus Stop</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.516326,38.0291547,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Runk Dining Hall</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5184932,38.0290617,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>O-Hill Dining Hall</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5145772,38.0348336,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Aquatic Fitness Center</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.513515,38.0326195,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>McCormick Road/Old Dorms Bus Stop</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5118091,38.0343941,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Chemistry Building Bus Stop</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5117447,38.0341491,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Gilmer Hall East</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5120451,38.0338449,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Clark Hall</name>
+        <description>Rack Outside Main Entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5077536,38.0334646,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Newcomb Hall</name>
+        <description>Rack next to first floor entrance facing the Bookstore. Racks next to dining hall entrances on second floor. Cavalier Daily offices in the basement.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5065949,38.0356786,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Amphitheater</name>
+        <description>Box next to stairs and bike rack, next to Minor Hall.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5061979,38.0340984,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Bryan Hall</name>
+        <description>Box on footbridge.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5062087,38.0334477,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Rouss Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5041273,38.033008200000005,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Old Cabell Hall</name>
+        <description>Racks inside fourth floor entrances. Rack inside second floor entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5048783,38.0329237,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>South Lawn Bridge</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5052109,38.0323829,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Wilson/Cabell Bus Stop</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5039878,38.0322054,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Elson Student Health Center</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5035479,38.031597,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>McLeod Hall</name>
+        <description>Box Outside main entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.501842,38.0308449,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Claude Moore Medical Education Building</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5014987,38.0314449,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Jordan Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5009837,38.0321801,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Lee Street Parking Garage</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4979367,38.0318167,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>The Corner</name>
+        <description>Box in front of CVS/Little John's.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5002649,38.0346772,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Courtyard Marriott</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4969014,38.0332364,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Downtown Mall</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4827983,38.0312505,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Bodo's Bagels - Preston Ave</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4852016,38.0350786,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Bavaro Hall Footbridge</name>
+        <description>Box on east side of footbridge.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5085368,38.0350195,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Brandon Avenue</name>
+        <description>Box in line-up in front of Student Health.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5036659,38.0318843,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Fine Arts Grounds Parking Garage</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5042131,38.0400388,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Gilmer Hall - West</name>
+        <description>Box outside west entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5135257,38.0347237,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>International Residential College</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5075712,38.039312100000004,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Lambeth C3 Store</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5036337,38.0420161,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>New Cabell Hall</name>
+        <description>Box outside 4th floor eastern entrance, next to Wilson-Cabell footbridge.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5044277,38.0325688,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Newcomb Hall</name>
+        <description>Box outside southern entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5068524,38.0354082,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Newcomb Hall</name>
+        <description>Box outside western entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5069704,38.0358645,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Chemistry Building - Wilsdorf Patio</name>
+        <description>Box outside chem building east entrance.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5114765,38.0335068,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Scott Stadium Parking Lot Bus Stop</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5150385,38.0295772,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Bice House</name>
+        <description>Box outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5048246,38.0296533,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Academical Village</name>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.50359400000002,38.035698,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>UVA Chapel Bus Stop</name>
+        <description>Box Outside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5047174,38.036118,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Booker House (Provost's Office)</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5020351,38.0366926,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Mincer's</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5007584,38.0353321,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Wilson Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5040092,38.032509700000006,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Kent-Dabeny (Office of Housing &amp; Residence Life)</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5109079,38.0348336,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Slaughter Recreation Center</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.51786020000002,38.0350026,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Office of African American Affairs</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5060477,38.0326956,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>914 and 918 Emmet St</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5026038,38.0489528,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Brown Hall</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5094702,38.0527632,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>2400 Old Ivy Road</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.51875070000001,38.0466209,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Memorial Gymnasium</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5071528,38.0376475,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Claude Moore Library</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5012949,38.0321209,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Office of Public Affairs</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5251451,38.025816400000004,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Holiday Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.49318390000002,38.0616756,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Comfort Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4944606,38.0606957,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>English Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.494997,38.0559481,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Residence Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.5033655,38.0526491,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Hampton Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4942889,38.0321294,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>Red Roof Inn</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4983873,38.0337772,0.0</coordinates>
+    </Placemark>
+    <Placemark>
+        <name>The Omni Hotel</name>
+        <description>Rack Inside.</description>
+        <styleUrl>#icon-503-DB4436</styleUrl>
+        <ExtendedData>
+        </ExtendedData>
+        <coordinates>-78.4839034,38.0317575,0.0</coordinates>
+    </Placemark>
+</Document>
