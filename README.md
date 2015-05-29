@@ -1,3 +1,3 @@
-# SimpleRedditClient
+# CavDaily
 
-Just a simple Reddit Client for the Intro to Android Workshop at UVA in preparation for HackUva
+The official Android app for Cavalier Daily news
