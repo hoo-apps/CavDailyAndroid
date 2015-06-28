@@ -107,7 +107,7 @@
 
                 <include
                     android:id="@+id/next_article_1"
-                    layout="@layout/view_list_item_image_interior" />
+                    layout="@layout/view_list_item_image" />
 
                 <View
                     android:layout_width="match_parent"
@@ -116,7 +116,7 @@
 
                 <include
                     android:id="@+id/next_article_2"
-                    layout="@layout/view_list_item_image_interior" />
+                    layout="@layout/view_list_item_image" />
 
                 <View
                     android:layout_width="match_parent"
@@ -125,7 +125,7 @@
 
                 <include
                     android:id="@+id/next_article_3"
-                    layout="@layout/view_list_item_image_interior" />
+                    layout="@layout/view_list_item_image" />
 
             </LinearLayout>
 

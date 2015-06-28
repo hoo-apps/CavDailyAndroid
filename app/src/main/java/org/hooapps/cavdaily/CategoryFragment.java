@@ -1,13 +1,10 @@
 package org.hooapps.cavdaily;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,25 +12,16 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.openx.view.AdBanner;
 import com.squareup.picasso.Picasso;
 
-import org.hooapps.cavdaily.api.CavDailyFeed;
 import org.hooapps.cavdaily.api.CavDailyFeedLoader;
-import org.hooapps.cavdaily.api.CavDailyFeedService;
 import org.hooapps.cavdaily.api.model.ArticleFeedResponse;
 import org.hooapps.cavdaily.api.model.ArticleItem;
-import org.hooapps.cavdaily.api.model.RedditData;
-import org.simpleframework.xml.Serializer;
-import org.simpleframework.xml.core.Persister;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import retrofit.converter.SimpleXMLConverter;
 
 public class CategoryFragment extends ListFragment implements LoaderManager.LoaderCallbacks<ArticleFeedResponse> {
 
@@ -48,7 +36,6 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
         this.category = getArguments().getString(ARG_CATEGORY);
 
         // Configure the ListView and load the data
-        getListView().setDivider(null);
         getListView().setDrawSelectorOnTop(true);
         getLoaderManager().initLoader(0, null, this);
     }
@@ -136,12 +123,11 @@ public class CategoryFragment extends ListFragment implements LoaderManager.Load
             TextView title, author, date;
 
             public ViewHolder(View v) {
-                View rootIncludeView = v.findViewById(R.id.interior_view);
-                image = (ImageView) rootIncludeView.findViewById(R.id.image);
-                imageback = (ImageView) rootIncludeView.findViewById(R.id.imageback);
-                title = (TextView) rootIncludeView.findViewById(R.id.title);
-                author = (TextView) rootIncludeView.findViewById(R.id.author);
-                date = (TextView) rootIncludeView.findViewById(R.id.date);
+                image = (ImageView) v.findViewById(R.id.image);
+                imageback = (ImageView) v.findViewById(R.id.imageback);
+                title = (TextView) v.findViewById(R.id.title);
+                author = (TextView) v.findViewById(R.id.author);
+                date = (TextView) v.findViewById(R.id.date);
 
             }
         }

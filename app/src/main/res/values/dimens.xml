@@ -6,4 +6,8 @@
     <dimen name="vertical_padding">8dp</dimen>
     <dimen name="horizontal_padding">16dp</dimen>
     <dimen name="horizontal_padding_half">8dp</dimen>
+
+    <dimen name="padding_default">16dp</dimen>
+    <dimen name="padding_half">8dp</dimen>
+    <dimen name="padding_quarter">4dp</dimen>
 </resources>
