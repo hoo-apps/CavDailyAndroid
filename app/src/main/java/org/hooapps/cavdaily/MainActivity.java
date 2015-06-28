@@ -1,9 +1,11 @@
 package org.hooapps.cavdaily;
 
 import android.content.Context;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -27,8 +29,7 @@ import java.util.List;
 public class MainActivity extends ActionBarActivity {
 
     DrawerLayout drawerLayout;
-    ListView navDrawer;
-    private NavDrawerAdapter navDrawerAdapter;
+    NavigationView mNavigationView;
     private ActionBarDrawerToggle drawerToggle;
     private Toolbar toolbar;
 
@@ -54,19 +55,44 @@ public class MainActivity extends ActionBarActivity {
 
         // Load the views
         drawerLayout = (DrawerLayout) this.findViewById(R.id.drawer_layout);
-        navDrawer = (ListView) this.findViewById(R.id.left_drawer);
+        mNavigationView = (NavigationView) this.findViewById(R.id.navigation_view);
+        mNavigationView.setNavigationItemSelectedListener(menuItem -> {
+            Fragment frag;
+            switch (menuItem.getItemId()) {
+                case R.id.nav_top: frag = createListFragment(CavDailyFeedService.TOP);
+                    break;
+                case R.id.nav_news:frag = createListFragment(CavDailyFeedService.NEWS);
+                    break;
+                case R.id.nav_sports: frag = createListFragment(CavDailyFeedService.SPORTS);
+                    break;
+                case R.id.nav_opinion: frag = createListFragment(CavDailyFeedService.OPINION);
+                    break;
+                case R.id.nav_arts_and_ent: frag = createListFragment(CavDailyFeedService.AE);
+                    break;
+                case R.id.nav_life: frag = createListFragment(CavDailyFeedService.LIFE);
+                    break;
+                case R.id.nav_focus: frag = createListFragment(CavDailyFeedService.FOCUS);
+                    break;
+                case R.id.nav_health_and_sci: frag = createListFragment(CavDailyFeedService.HS);
+                    break;
+                case R.id.nav_multimedia: frag = createListFragment(CavDailyFeedService.MULTIMEDIA);
+                    break;
+                case R.id.nav_find_a_paper: frag = new PaperLocationFragment();
+                    break;
+                case R.id.nav_about: frag = new AboutFragment();
+                    break;
+                default: frag = createListFragment(CavDailyFeedService.TOP);
+                    break;
+            }
+            menuItem.setChecked(true);
+            swapListFragment(frag);
+            toolbar.setTitle(menuItem.getTitle());
+            drawerLayout.closeDrawers();
+            return true;
+        });
         toolbar = (Toolbar) this.findViewById(R.id.toolbar);
 
-        // Configure the adapter for the Nav Drawer
-        ArrayList<String> navDrawerItems = new ArrayList<>(Arrays.asList(
-                getResources().getStringArray(R.array.nav_drawer_items)
-        ));
-        navDrawerAdapter = new NavDrawerAdapter(this, navDrawerItems);
-        navDrawer.setAdapter(navDrawerAdapter);
-        navDrawer.setOnItemClickListener(new NavDrawerListener());
-
         if (toolbar != null) {
-            toolbar.setTitle(navDrawerAdapter.getItem(0));
             setSupportActionBar(toolbar);
         }
 
@@ -133,104 +159,5 @@ public class MainActivity extends ActionBarActivity {
         FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
         ft.replace(R.id.container, frag);
         ft.commit();
-    }
-
-    private class NavDrawerListener implements  ListView.OnItemClickListener {
-
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-            Fragment frag;
-
-            switch (position) {
-                // Top Stories
-                case 0: frag = createListFragment(CavDailyFeedService.TOP);
-                    break;
-                // News
-                case 1: frag = createListFragment(CavDailyFeedService.NEWS);
-                    break;
-                // Sports
-                case 2: frag = createListFragment(CavDailyFeedService.SPORTS);
-                    break;
-                // Opinion
-                case 3: frag = createListFragment(CavDailyFeedService.OPINION);
-                    break;
-                // Life
-                case 4: frag = createListFragment(CavDailyFeedService.AE);
-                    break;
-                // A&E
-                case 5: frag = createListFragment(CavDailyFeedService.LIFE);
-                    break;
-                // Focus
-                case 6: frag = createListFragment(CavDailyFeedService.FOCUS);
-                    break;
-                // H&S
-                case 7: frag = createListFragment(CavDailyFeedService.HS);
-                    break;
-                // Multimedia
-                case 8: frag = createMediaListFragment(CavDailyFeedService.MULTIMEDIA);
-                    break;
-                // Find a Paper
-                case 9: frag = new PaperLocationFragment();
-                    break;
-                // About
-                case 10: frag = new AboutFragment();
-                    break;
-                default:
-                    frag = createListFragment(CavDailyFeedService.NEWS);
-                    break;
-            }
-
-            swapListFragment(frag);
-            getSupportActionBar().setTitle(navDrawerAdapter.getItem(position));
-            navDrawer.setItemChecked(position, true);
-            drawerLayout.closeDrawers();
-        }
-    }
-
-    private static class NavDrawerAdapter extends BaseAdapter {
-
-        private Context context;
-        private List<String> items;
-
-        private NavDrawerAdapter(Context context, List<String> items) {
-            this.context = context;
-            this.items = items;
-        }
-
-        @Override
-        public int getCount() {
-            return items.size();
-        }
-
-        @Override
-        public String getItem(int position) {
-            return items.get(position);
-        }
-
-        @Override
-        public long getItemId(int position) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int position, View convertView, ViewGroup parent) {
-            if (convertView == null) {
-                convertView = LayoutInflater.from(context).inflate(R.layout.view_nav_drawer_item, parent, false);
-                convertView.setTag(new ViewHolder(convertView));
-            }
-            ViewHolder holder = (ViewHolder) convertView.getTag();
-            String title = getItem(position);
-            holder.title.setText(title);
-            return convertView;
-        }
-
-        private static class ViewHolder {
-            TextView title;
-
-            public ViewHolder(View v) {
-                title = (TextView) v.findViewById(R.id.title);
-            }
-        }
     }
 }

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
@@ -20,23 +21,12 @@
         </FrameLayout>
 
         <!-- Nav Drawer -->
-        <RelativeLayout
-            android:layout_width="match_parent"
+        <android.support.design.widget.NavigationView
+            android:id="@+id/navigation_view"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="start"
-            android:background="#ffffff"
-            android:paddingTop="4dp"
-            android:paddingBottom="4dp" >
-
-            <ListView
-                android:id="@+id/left_drawer"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:choiceMode="singleChoice"
-                android:scrollbars="none"
-                android:background="#ffffff" />
-
-        </RelativeLayout>
+            app:menu="@menu/nav_drawer"/>
 
     </android.support.v4.widget.DrawerLayout>
 
