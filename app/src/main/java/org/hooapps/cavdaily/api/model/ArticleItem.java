@@ -31,7 +31,7 @@ public class ArticleItem {
     public String guid;
 
     @Element(required = false)
-    private String pubDate;
+    public String pubDate;
 
     public String getDate() {
         if (pubDate != null && pubDate.length()>0)
@@ -41,7 +41,7 @@ public class ArticleItem {
     }
 
     @Element(required = false)
-    private String author;
+    public String author;
 
     public String getAuthor() {
         if (author == null)

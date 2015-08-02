@@ -3,10 +3,7 @@ package org.hooapps.cavdaily;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.ListFragment;
-import android.support.v4.content.Loader;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -59,7 +56,7 @@ public class SearchFragment extends ListFragment {
     }
 
     public void beginSearch(String searchText) {
-        new DownloadFilesTask().execute(searchText);
+        new DownloadArticlesTask().execute(searchText);
     }
 
     private String convertStreamToString(InputStream is) {
@@ -94,6 +91,8 @@ public class SearchFragment extends ListFragment {
         for (int i = 0; i < 3; i++) {
             nextArticles.add((ArticleItem) adapter.getItem((position+1+i) % numArticles));
         }
+
+        // TODO load the article body in from the given link
 
         ArticleDetailActivity.startArticleDetailActivity(getActivity(), articleItem, nextArticles);
 
@@ -161,7 +160,7 @@ public class SearchFragment extends ListFragment {
         }
     }
 
-    class DownloadFilesTask extends AsyncTask<String, Integer, List<ArticleItem>> {
+    class DownloadArticlesTask extends AsyncTask<String, ArticleItem, List<ArticleItem>> {
 
         protected List<ArticleItem> doInBackground(String ...searchText) {
             int count = searchText.length;
@@ -198,6 +197,14 @@ public class SearchFragment extends ListFragment {
                             if (thumbnailMatcher.find())
                                 article.addMediaUrl(thumbnailMatcher.group(1));
 
+                            Matcher dateMatcher = Pattern.compile("<em>\\((.*)\\)</em>", Pattern.CASE_INSENSITIVE).matcher(full);
+                            if (dateMatcher.find())
+                                article.pubDate = dateMatcher.group(1);
+
+                            Matcher authorMatcher = Pattern.compile("<p>By (.*)\n", Pattern.CASE_INSENSITIVE).matcher(full);
+                            if (authorMatcher.find())
+                                article.author = authorMatcher.group(1);
+
                             Matcher linkMatcher = Pattern.compile("<h[0-9]><a href=\"(.*?)\"", Pattern.CASE_INSENSITIVE).matcher(full);
                             if (linkMatcher.find())
                                 article.link = linkMatcher.group(1);
@@ -207,6 +214,7 @@ public class SearchFragment extends ListFragment {
                                 article.description = captionMatcher.group(1);
 
                             articles.add(article);
+                            publishProgress(article);
                         }
                         return articles;
                     }
@@ -216,7 +224,7 @@ public class SearchFragment extends ListFragment {
             return new ArrayList<ArticleItem>();
         }
 
-        protected void onProgressUpdate(Integer... progress) {
+        protected void onProgressUpdate(ArticleItem... progress) {
 
         }
 
