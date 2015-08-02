@@ -59,6 +59,8 @@ public class MainActivity extends ActionBarActivity {
         mNavigationView.setNavigationItemSelectedListener(menuItem -> {
             Fragment frag;
             switch (menuItem.getItemId()) {
+                case R.id.nav_search: frag = new SearchFragment();
+                    break;
                 case R.id.nav_top: frag = createListFragment(CavDailyFeedService.TOP);
                     break;
                 case R.id.nav_news:frag = createListFragment(CavDailyFeedService.NEWS);

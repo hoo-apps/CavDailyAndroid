@@ -34,7 +34,10 @@ public class ArticleItem {
     private String pubDate;
 
     public String getDate() {
-        return pubDate.substring(0, pubDate.indexOf(":") + 3);
+        if (pubDate != null && pubDate.length()>0)
+            return pubDate.substring(0, pubDate.indexOf(":") + 3);
+        else
+            return "";
     }
 
     @Element(required = false)
@@ -66,6 +69,12 @@ public class ArticleItem {
             urlList.add(c.url);
         }
         return urlList;
+    }
+
+    public void addMediaUrl(String url) {
+        Content newContent = new Content();
+        newContent.url = url;
+        this.contentList.add(newContent);
     }
 }
 
